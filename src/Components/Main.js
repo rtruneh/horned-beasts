@@ -6,40 +6,36 @@ import HornedBeast from './HornedBeast';
 // import Gazelle from '../img/hb1.jpg';
 
 import {animalData} from '../data';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap';
 
 
 function Main() {
     return (
-      <>
-     
-        {animalData.map((data, key) => {
-            return (<div key = {key}>
-                <HornedBeast 
-                image_url={data.image_url}
-                title={data.title}
-                description={data.description}
-                />
-                </div>
-                );
-        })}
-
-           {/* <HornedBeast 
-          title="Horned Animal" 
-          imgurl={Black} 
-          desc="black beauty"
-        /> */}
-        {/* <HornedBeast 
-          title="Gazelle" 
-          imgurl={Gazelle} 
-          desc = "Gazelle"
-        /> */}
-      </>
-      );
-    }
-
-export default Main;
+      <div>
+        <Container>
+          <Row>
+            {animalData.map((data, key) => {
+              return(
+                //{number of column spaces}
+                <Col xs={12} md={6} lg={4}>
+                  <div key={key}>
+                      <HornedBeast
+                      key={key}
+                      image_url={data.image_url}
+                      title={data.title}
+                      description={data.description}
+                      />
+                    
+                  </div>
+                </Col>
+              );
+            })};
+          </Row>
+        </Container>
+      </div>
+        );
+      }
 
       
-
-
-
+    export default Main;
